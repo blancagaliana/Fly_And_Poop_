@@ -1,0 +1,35 @@
+class Tree {
+    constructor(ctx, canvasHeight, canvasWidth) {
+        this.ctx = ctx
+        this.canvasHeight = canvasHeight
+        this.canvasWidth = canvasWidth
+
+        this.height = Math.random() * this.canvasHeight - (36 * 2 + 50)
+        this.width = 150
+        this.max = this.canvasHeight - 30 * 2
+
+        this.posX = this.canvasWidth
+        this.posY = this.canvasHeight - this.height - 50
+
+        this.image = new Image()
+        if (this.height > this.max / 3 * 2) {
+            this.image.src = './arbol4.png'
+        }
+        else if (this.height > this.max / 3) {
+            this.image.src = './arbol2.png'
+        }
+        else if (this.height > this.max) {
+            this.image.src = './arbol5.png'
+        }
+    }
+
+    move() {
+        this.posX = this.posX - 4
+    }
+
+
+    draw() {
+        this.ctx.drawImage(this.image, this.posX, this.posY, this.width, this.height)
+    }
+
+}
